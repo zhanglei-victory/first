@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+"-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.microsec.ycjc.user.dao.IUserInfoDao">
+	<!-- 查询所有用户信息 -->
+	<select id="findAllUserInfoList" resultType="com.microsec.ycjc.user.pojo.UserInfo">
+		select * from tbl_userinfo order by username
+	</select>
+	
+	<!-- 查询用户信息 -->
+	<select id="findAllInfoByCond" parameterType="com.microsec.ycjc.user.cond.UserInfoCond"  resultType="com.microsec.ycjc.user.pojo.UserInfo">
+		select
+			userinfo.userid,role.rolename as userroleid,userinfo.username,userinfo.userRealName,userinfo.userPwd,
+			userinfo.userSex,userinfo.userposition,userinfo.userphone,userinfo.userEmail,if(userinfo.userstatus='1','锁定','未锁定') as userstatus
+		from
+			tbl_userinfo userinfo
+		left join tbl_role role
+		on userinfo.userroleid = role.roleid
+		where userinfo.username like concat(concat('%',#{username}),'%')
+		and userinfo.userRealName like concat(concat('%',#{userRealName}),'%') 
+		limit #{start},#{singlePagesize}
+	</select>
+	<!-- 查询用户数目 -->
+	<select id="findAllCountByCond" parameterType="com.microsec.ycjc.user.cond.UserInfoCond" resultType="java.lang.Long">
+		select
+			count(*)
+		from
+			tbl_userinfo userinfo
+		left join tbl_role role
+		on userinfo.userroleid = role.roleid
+		where userinfo.username like concat(concat('%',#{username}),'%')
+		and userinfo.userRealName like concat(concat('%',#{userRealName}),'%') 
+	</select>
+	<!-- 登录参数设定 -->
+	<parameterMap type="map" id="loginCondMap">
+		<parameter property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<parameter property="userPwd" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</parameterMap>
+	<!-- 登录查询 -->
+	<select id="loginSys" parameterMap="loginCondMap" resultType="com.microsec.ycjc.user.pojo.UserInfo">
+		select
+			userid,userroleid,username,userRealName,userPwd,userSex,userposition,userphone,userEmail,userstatus
+		from
+			tbl_userinfo
+		where username = #{username} and userPwd = #{userPwd} and userstatus = '0'
+	</select>
+	<select id="loginSys2" parameterType="java.lang.String" resultType="com.microsec.ycjc.user.pojo.UserInfo">
+		select
+			userid,userroleid,username,userRealName,userPwd,userSex,userposition,userphone,userEmail,userstatus
+		from
+			tbl_userinfo
+		where username = #{username}
+	</select>
+	<!-- 根据id查找 -->
+	<select id="findById" parameterType="java.lang.String" resultType="com.microsec.ycjc.user.pojo.UserInfo">
+		select
+			userid,userroleid,username,userRealName,userPwd,userSex,userposition,userphone,userEmail,userstatus
+		from
+			tbl_userinfo
+		where userid = #{userid}
+	</select>
+	<!-- 根据id查找 -->
+	<select id="findLockorUnlockInfoById" parameterType="java.lang.String" resultType="com.microsec.ycjc.user.pojo.UserInfo">
+		select
+			userid,userroleid,username,userRealName,userPwd,userSex,userposition,userphone,userEmail,if(userstatus='1','锁定','未锁定') as userstatus
+		from
+			tbl_userinfo
+		where userid = #{userid}
+	</select>
+	<!-- 根据roleid查找 -->
+	<select id="findUserInfoByRoleId" parameterType="java.lang.String" resultType="com.microsec.ycjc.user.pojo.UserInfo">
+		select
+			userid,userroleid,username,userRealName,userPwd,userSex,userposition,userphone,userEmail,userstatus
+		from
+			tbl_userinfo
+		where userroleid = #{userroleid}
+	</select>
+	
+	<!-- 增加用户信息  -->
+	<insert id="insertUserInfo" useGeneratedKeys="true" parameterType="com.microsec.ycjc.user.pojo.UserInfo" keyProperty="userid">
+		insert into tbl_userinfo(userroleid,username,userRealName,userPwd,userSex,userposition,userphone,userEmail,userstatus) 
+		values(#{userroleid},#{username},#{userRealName},#{userPwd},#{userSex},#{userposition},#{userphone},#{userEmail},#{userstatus})
+	</insert>
+	<!-- 修改用户 -->
+	<update id="updateUserInfo" parameterType="com.microsec.ycjc.user.pojo.UserInfo">
+		update 
+			tbl_userinfo
+		set userroleid = #{userroleid},username = #{username},userRealName = #{userRealName},
+			userPwd = #{userPwd},userSex = #{userSex},userposition = #{userposition},userphone = #{userphone},
+			userEmail = #{userEmail},userstatus = #{userstatus}
+		where userid = #{userid}
+	</update>
+	<!-- 删除用户 -->
+	<delete id="deleteUserInfo" parameterType="java.lang.String">
+		delete from
+			tbl_userinfo
+		where userid = #{userid}
+	</delete>
+	<!-- 锁定用户 -->
+	<update id="lockUserInfo" parameterType="java.lang.String">
+		update
+			tbl_userinfo
+		set userstatus = '1'
+		where userid = #{userid}
+	</update>
+	<!-- 解锁用户 -->
+	<update id="unlockUserInfo" parameterType="java.lang.String">
+		update
+			tbl_userinfo
+		set userstatus = '0'
+		where userid = #{userid}
+	</update>
+	<!-- 重置密码 -->
+	<update id="resetUserInfoPwd" parameterType="java.lang.String">
+		update
+			tbl_userinfo
+		set userPwd = '21218CCA77804D2BA1922C33E0151105'
+		where userid = #{userid}
+	</update>
+</mapper>

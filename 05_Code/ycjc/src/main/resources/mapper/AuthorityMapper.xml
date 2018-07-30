@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+"-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.microsec.ycjc.user.dao.IAuthorityDao">
+	<!-- 查询所有权限信息 -->
+	<select id="findAllAuthList" resultType="com.microsec.ycjc.user.pojo.Authority">
+		select
+			*
+		from
+			tbl_authority
+	</select>
+	<!-- 根据id查找 -->
+	<select id="findById" parameterType="java.lang.String" resultType="com.microsec.ycjc.user.pojo.Authority">
+		select
+			*
+		from
+			tbl_authority
+		where authid = #{authid}
+	</select>
+	<!-- 根据名字查找 -->
+	<select id="findAuthListByName" parameterType="java.lang.String" resultType="com.microsec.ycjc.user.pojo.Authority">
+		select
+			*
+		from
+			tbl_authority
+		where authname like concat(concat('%',#{authname}),'%') 
+	</select>
+	<!-- 增加权限信息  -->
+	<insert id="insertAuth" useGeneratedKeys="true" parameterType="com.microsec.ycjc.user.pojo.Authority" keyProperty="authid">
+		insert into tbl_authority(authname,priAuthId) 
+		values(#{authname},#{priAuthId})
+	</insert>
+	<!-- 修改权限 -->
+	<update id="updateAuth" parameterType="com.microsec.ycjc.user.pojo.Authority">
+		update 
+			tbl_authority
+		set authname = #{authname},priAuthId = #{priAuthId}
+		where authid = #{authid}
+	</update>
+	<!-- 删除权限 -->
+	<delete id="deleteAuth" parameterType="java.lang.String">
+		delete from
+			tbl_authority
+		where authid = #{authid}
+	</delete>
+</mapper>

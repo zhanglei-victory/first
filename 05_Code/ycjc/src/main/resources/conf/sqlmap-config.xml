@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 命名空间 -->
+	<typeAliases>
+<!-- 		<typeAlias type="com.microsec.water.config.pojo.WaterPoint" -->
+<!-- 			alias="WaterPoint" /> -->
+<!-- 		<typeAlias type="com.microsec.water.analysis.pojo.WaterEvent" -->
+<!-- 			alias="WaterEvent" /> -->
+	</typeAliases>
+	
+	<!-- mapper映射 -->
+	<mappers>
+		<mapper resource="" />
+	</mappers>
+</configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+"-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.microsec.ycjc.user.dao.IRoleAuthDao">
+	<!-- 增加权限信息  -->
+	<insert id="insertRoleAuth" useGeneratedKeys="true" parameterType="com.microsec.ycjc.user.pojo.RoleAuth" keyProperty="roleAuthId">
+		insert into tbl_role_authority(roleId,authId) 
+		values(#{roleid},#{authid})
+	</insert>
+	<!-- 删除角色对应的权限数据 -->
+	<delete id="deleteRoleAuth" parameterType="java.lang.String">
+		delete from
+			tbl_role_authority
+		where roleid = #{roleid}
+	</delete>
+	<!-- 根据roleid查询权限 -->
+	<select id="findByRoleId" parameterType="java.lang.String" resultType="com.microsec.ycjc.user.pojo.RoleAuth">
+		select roleAuthId,roleId,authId
+		from tbl_role_authority
+		where roleId = #{roleid}
+	</select>
+</mapper>

@@ -1,0 +1,30 @@
+
+body{background-image:url(images/bg01.png)}
+.bigbox .btn_left.active a{background-color: #fff;}
+.bigbox .btn_left:hover a{color:yellow;font-weight:bold;font-size:22px;}
+.bigbox .btn_right.active a{background-color: #fff;}
+.bigbox .btn_right:hover a{color:yellow;font-weight:bold;font-size:22px;}
+.bigbox .btn_right1.active a{background-color: #fff;}
+.bigbox .btn_right1:hover a{color:yellow;font-weight:bold;font-size:22px;}
+.bigbox .btn_top:hover a{color:yellow;font-weight:bold;font-size:22px;}
+.bigbox .btn_bottom:hover a{color:yellow;font-weight:bold;font-size:22px;}
+
+
+.btn_left img{display:block;position:absolute;top:25%;left:27%;float:left;}
+.btn_right img{display:block;position:absolute;top:45%;left:35%;float:left;}
+.btn_right1 img{display:block;position:absolute;top:45%;left:58%;float:left;}
+.btn_top img{display:block;position:absolute;top:25%;left:67%;float:left;}
+.btn_bottom img{display:block;position:absolute;top:65%;left:46.5%;float:left;}
+
+.top a{display:block;position:absolute;top:34%;left:41%;float:left;font-size:36px;color:#ffffff;font-family:"Arial";font-weight:bold;
+} 
+.title a{display:block;position:absolute;top:6%;left:9%;float:left;font-size:30px;color:#EAF1F1;font-family:"Arial";font-weight:bold;}
+.top_right{width:320px;float:right;margin-right:0.2%;/*margin-top:12px;*/}
+.top_right a{text-decoration:none;display:block;float:left;margin-left:6%;font-size:12px;color:#fff;font-family:"Arial";}
+
+.title img{display:block;position:absolute;top:4%;left:3%;float:left;}
+.btn_left a{text-decoration:none;display:block;position:absolute;top:64%;left:36.2%;float:left;font-size:18px;color:#fff;font-family:"Î¢ÈíÑÅºÚ";}
+.btn_right a{text-decoration:none;display:block;position:absolute;top:64%;left:48.6%;float:left;font-size:18px;color:#fff;font-family:"Î¢ÈíÑÅºÚ";}
+.btn_right1 a{text-decoration:none;display:block;position:absolute;top:64%;left:60.6%;float:left;font-size:18px;color:#fff;font-family:"Î¢ÈíÑÅºÚ";}
+.btn_top a{text-decoration:none;display:block;position:absolute;top:64%;left:62.2%;float:left;font-size:18px;color:#fff;font-family:"Î¢ÈíÑÅºÚ";}
+

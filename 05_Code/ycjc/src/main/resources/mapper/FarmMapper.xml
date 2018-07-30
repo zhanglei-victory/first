@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+"-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.microsec.ycjc.farm.dao.IFarmDao">
+    <select id="findAllInfoList" resultType="com.microsec.ycjc.farm.pojo.Farm">
+        select * from tbl_farm
+    </select>
+    <select id="findAllAuthInfoList" parameterType="com.microsec.ycjc.farm.cond.FarmCond" resultType="com.microsec.ycjc.farm.pojo.Farm">
+        select * from tbl_farm
+        <if test='!"".equals(licenseid)'>
+            <![CDATA[
+                where licenseid=#{licenseid}
+            ]]> 
+         </if>
+    </select>
+    <!-- 查询信息 -->
+    <select id="findAllInfoByCond" parameterType="com.microsec.ycjc.farm.cond.FarmCond" resultType="com.microsec.ycjc.farm.pojo.Farm">
+        select * from tbl_farm
+        where farmname like concat(concat('%',#{farmname}),'%') 
+         <if test='!"".equals(licenseid)'>
+            <![CDATA[
+                AND licenseid=#{licenseid}
+            ]]> 
+         </if>
+        limit #{start},#{singlePagesize}
+    </select><!-- 查询信息 -->
+    <select id="findAllInfoByCondd" parameterType="java.lang.String" resultType="com.microsec.ycjc.farm.pojo.Farm">
+        select * from tbl_farm
+         
+    </select>
+    <!-- 查询数目 -->
+    <select id="findAllCountByCond" parameterType="com.microsec.ycjc.farm.cond.FarmCond" resultType="java.lang.Long">
+        select count(*) from tbl_farm 
+        WHERE farmname like concat(concat('%',#{farmname}),'%') 
+         <if test='!"".equals(licenseid)'>
+            <![CDATA[
+                AND licenseid=#{licenseid}
+            ]]> 
+         </if>
+        
+    </select>
+    <!-- 根据id查找 -->
+    <select id="findById" parameterType="java.lang.String" resultType="com.microsec.ycjc.farm.pojo.Farm">
+        select * from tbl_farm
+        where farmid = #{farmid}
+    </select>
+    <!-- 根据id查找 -->
+    <select id="findByLicenseId" parameterType="java.lang.String" resultType="com.microsec.ycjc.farm.pojo.Farm">
+        select * from tbl_farm
+        where licenseid = #{licenseid}
+    </select>
+    <!-- 增加信息  -->
+    <insert id="insertFarm" useGeneratedKeys="true" parameterType="com.microsec.ycjc.farm.pojo.Farm" keyProperty="farmid">
+        insert into tbl_farm(farmname,farmarea,farmlinkman,farmphone,farmaddress,remark) 
+        values(#{farmname},#{farmarea},#{farmlinkman},#{farmphone},#{farmaddress},#{remark})
+    </insert>
+    <!-- 修改信息 -->
+    <update id="updateFarm" parameterType="com.microsec.ycjc.farm.pojo.Farm">
+        update 
+            tbl_farm
+        set 
+          lng=#{lng},
+          lat=#{lat},
+          healthness=#{healthness},
+          upddatetime=#{upddatetime}
+        where farmid = #{farmid}
+    </update>
+    <!-- 删除角色 -->
+    <delete id="deleteFarm" parameterType="java.lang.String">
+        delete from
+            tbl_farm
+        where farmid = #{farmid}
+    </delete>
+</mapper>

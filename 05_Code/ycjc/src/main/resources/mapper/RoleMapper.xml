@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+"-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.microsec.ycjc.user.dao.IRoleDao">
+	<!-- 查询所有角色信息 -->
+	<select id="findAllRoleList" resultType="com.microsec.ycjc.user.pojo.Role">
+		select
+			roleid,rolename
+		from
+			tbl_role
+	</select>
+	<!-- 查询角色信息 -->
+	<select id="findAllInfoByCond" parameterType="com.microsec.ycjc.user.cond.RoleCond" resultType="com.microsec.ycjc.user.pojo.Role">
+		select
+			roleid,rolename
+		from
+			tbl_role
+		where rolename like concat(concat('%',#{rolename}),'%') limit #{start},#{singlePagesize}
+	</select>
+	<!-- 查询数目 -->
+	<select id="findAllCountByCond" parameterType="com.microsec.ycjc.user.cond.RoleCond" resultType="java.lang.Long">
+		select count(*) from tbl_role 
+		WHERE rolename like concat(concat('%',#{rolename}),'%')
+	</select>
+	<!-- 根据id查找 -->
+	<select id="findById" parameterType="java.lang.String" resultType="com.microsec.ycjc.user.pojo.Role">
+		select
+			roleid,rolename
+		from
+			tbl_role
+		where roleid = #{roleid}
+	</select>
+	<!-- 增加角色信息  -->
+	<insert id="insertRole" useGeneratedKeys="true" parameterType="com.microsec.ycjc.user.pojo.Role" keyProperty="roleid">
+		insert into tbl_role(rolename) 
+		values(#{rolename})
+		
+	</insert>
+	<!-- 修改角色 -->
+	<update id="updateRole" parameterType="com.microsec.ycjc.user.pojo.Role">
+		update 
+			tbl_role
+		set rolename = #{rolename}
+		where roleid = #{roleid}
+	</update>
+	<!-- 删除角色 -->
+	<delete id="deleteRole" parameterType="java.lang.String">
+		delete from
+			tbl_role
+		where roleid = #{roleid}
+	</delete>
+</mapper>

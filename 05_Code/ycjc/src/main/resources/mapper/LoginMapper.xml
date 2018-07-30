@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+"-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- namesapce的路径是接口的路径 -->
+<mapper namespace="com.microsec.ycjc.login.dao.ILoginDao">
+	<select id="getUserAuth" parameterType="com.microsec.ycjc.user.pojo.UserInfo" resultType="com.microsec.ycjc.login.pojo.UserAuth">
+		SELECT auth.authid, SUBSTRING(auth.authId,1,1) AS priAuthId, auth.authname
+		FROM tbl_userinfo ui,tbl_role role,tbl_authority auth,tbl_role_authority ra
+		WHERE ui.userroleid = role.roleid
+		AND role.roleid = ra.roleId
+		AND auth.authId = ra.authId
+		AND ui.username= #{username}
+		AND ui.userPwd= #{userPwd}
+		ORDER BY authid 
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

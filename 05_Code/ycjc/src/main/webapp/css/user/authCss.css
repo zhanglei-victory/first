@@ -1,0 +1,5 @@
+.msg label.error {
+	background: url(../../images/registermsg_bg.png) no-repeat 3px 6px;
+}
+.msg label {padding: 4px 10px 4px 23px;line-height: 16px;overflow:hidden;color: #404040;float:left;line-height: 18px;color: red;}
+input.error { border: 1px dotted red; }

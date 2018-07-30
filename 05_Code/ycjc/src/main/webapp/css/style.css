@@ -1,0 +1,438 @@
+#navigation {
+	float: left;
+	width: 170px;
+	overflow: hidden;
+	font-size: 1.3em;
+	border: 1px solid gray;
+	height: 570px;
+}
+ 
+
+#content {
+	overflow: auto;
+	
+	zoom: 1;
+	border: 1px solid gray;
+	width: auto;
+	height: 570px;
+}
+
+body {
+	font-family: \5FAE\8F6F\96C5\9ED1;
+}
+
+.div_td {
+	width: 510px;
+	height: 300px;
+	float: left;
+	color: #FF0000;
+	text-align: center;
+	line-height: 200px;
+}
+
+span  a:hover {
+	FONT-SIZE: 9pt;
+	COLOR: #FF0000;
+	TEXT-DECORATION: None;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.entityy { /*黄色矩阵*/
+	border: 1px;
+	margin-left: 5px;
+	color: #333366;
+	width: 170px;
+	height: 140px;
+	float: left;
+	margin-bottom: 15px;
+	font-size: smaller;
+	background-size: cover;
+	-moz-background-size: cover;
+	background-image: url(../images/yellow.png);
+}
+
+.entity { /*灰色矩阵*/
+	border: 1px;
+	margin-left: 5px;
+	color: #333366;
+	width: 170px;
+	height: 140px;
+	float: left;
+	margin-bottom: 15px;
+	font-size: smaller;
+	background-size: cover;
+	-moz-background-size: cover;
+	background-image: url(../images/gray.png);
+}
+
+.entityr { /*红色矩阵*/
+	border: 1px;
+	margin-left: 5px;
+	color: #333366;
+	width: 170px;
+	height: 140px;
+	float: left;
+	margin-bottom: 15px;
+	font-size: smaller;
+	background-size: cover;
+	-moz-background-size: cover;
+	background-image: url(../images/red.png);
+}
+
+.entityr table tr {
+	font-size: 12px;
+	font-family: \5FAE\8F6F\96C5\9ED1
+}
+
+.entityy table tr {
+	font-size: 12px;
+	font-family: \5FAE\8F6F\96C5\9ED1;
+}
+
+.entity table tr {
+	font-size: 12px;
+	font-family: \5FAE\8F6F\96C5\9ED1;
+}
+.entityr table tr td {
+
+text-align:center;
+     
+	   
+	 
+}
+.entityy table tr td {
+     
+	text-align:center;
+}
+.entity table tr  td{
+     
+	 text-align:center;
+}
+.entity table {
+	width: 180px;
+	height: 140px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.entityy table {
+	width: 180px;
+	height: 140px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.entityr table {
+	width: 180px;
+	height: 140px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#biaotou {
+	 
+	height: 35px;
+	margin-bottom: 2px;
+	text-align: left;
+	table-layout: fixed;
+	font-family: \5FAE\8F6F\96C5\9ED1;
+	font-weight: bold;
+	line-height: 35px;
+	background-image: url(../images/biaotou.png);
+   background-repeat:no-repeat;
+}
+
+#biaotouinfo {
+	background-color: #CCCCCC;
+}
+
+#addzhadian table tr td {
+	font-family: \5FAE\8F6F\96C5\9ED1;
+	text-align: center;
+	width: 270px;
+	background: #FFFFFF;
+	padding: 0;
+	margin: 0;
+	height: 40px;
+}
+
+#addzhadian {
+	width: auto;
+	border: solid 1px #CCCCCC;
+}
+
+#addzhadian2 {
+	width: auto;
+	border: solid 1px #CCCCCC;
+}
+
+#addzhadian2 table tr td {
+	font-family: \5FAE\8F6F\96C5\9ED1;
+	text-align: center;
+	width: 360px;
+	background: #FFFFFF;
+	padding: 0;
+	margin: 0;
+	height: 40px;
+}
+
+/*  站点界面的table*/
+#zhadian table tr td {
+	text-align: center;
+	font-family: \5FAE\8F6F\96C5\9ED1;
+	width: 100px;
+	height: 40px;
+	border: solid 1px #CCCCCC;
+}
+
+#gjpz tr td {
+	text-align: center;
+	font-family: \5FAE\8F6F\96C5\9ED1;
+	border: solid #999999 1px;
+	width: 155px;
+	height: 40px;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*888888888888888888888888888888888888888888888888*/ /* CSS Document */
+html,*,body,div,ul,ol,li,h1,h2,h3,h4,h5,h6,p,span {
+	margin: 0;
+	padding: 0;
+}
+
+a img,:link img,:visited img {
+	border: 0;
+}
+
+a:link,a:visited {
+	text-decoration: none;
+	color: #666666;
+}
+
+a:hover,a:focus {
+	text-decoration: underline;
+	color: #0573bd;
+	text-decoration: none;
+}
+
+ul,ul li {
+	list-style-type: none;
+}
+
+.top {
+	width: auto;
+	height: 40px;
+	margin: 0 auto;
+	background: #33CCFF;
+}
+
+#tabletop {
+	position: absolute;
+	right: 20px;
+	top: 6px;
+	text-align: center;
+}
+
+.height150 {
+	height: 40px;
+	width: 200px;
+}
+
+#loginbg {
+	width: 460;
+	height: 330;
+	position: absolute;
+	right: 120px;
+	top: 200px;
+	border: solid 2px #CCCCCC;
+}
+
+.nav_z {
+	width: auto !important;
+	height: 40px;
+	float: left;
+	position: relative;
+	z-index: 999;
+	font-family: \5FAE\8F6F\96C5\9ED1;
+}
+
+#navul li {
+	float: left;
+	width: 140px;
+	font-size: 16px;
+	height: 40px;
+	position: relative;
+	text-align: center;
+	line-height: 40px;
+	border: #999999 solid 1px;
+}
+
+#navul li a:link,#navul li a:visited {
+	color: #000;
+	font-weight: 500;
+	letter-spacing: 2px;
+}
+
+#navul li ul {
+	display: none;
+	position: absolute;
+	z-index: 999;
+	background: #e6e6e6;
+	border: #c6c6c6 1px solid;
+	border-bottom: none;
+	left: -1px;
+}
+
+#navul li ul li {
+	display: block;
+	width: 140px;
+	float: none;
+	height: 35px;
+	position: relative;
+	line-height: 35px;
+	border-bottom: #C6C6C6 1px solid;
+	font-size: 12px;
+	overflow: hidden
+}
+
+#navul li.navmoon {
+	background: #E6E6E6;
+	border: #C6C6C6 1px solid;
+	width: 140px;
+	height: 38px;
+	line-height: 38px;
+}
+
+#navul li.navmoon a {
+	color: #404a58;
+}
+
+#navul li.navhome a:hover {
+	color: #FCFF00;
+}
+
+#navul li.navmoon ul {
+	display: block;
+}
+
+#navul li.navmoon ul a {
+	display: block;
+	width: 140px;
+	height: 35px;
+	line-height: 35px;
+}
+
+#navul li.navmoon ul a:hover {
+	color: #0573bd;
+	background: #FFF;
+}
+
+
+
+
+
+
+#pages
+{
+    width: 940px;
+    text-align: center;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 20px;
+}
+#pages a, #pages a.current_page:hover
+{
+    padding: 5px 10px;
+}
+#pages a:hover
+{
+    padding: 5px 9px;
+}
+
+#footer
+{
+    width: auto;
+    height: 20px;
+    padding: 15px 0;
+    line-height: 25px;
+    	font-size:9px;
+    text-align: center;
+    background-image: url(../images/biaotou.png);
+    background-repeat:no-repeat;
+    	 
+}
+#pages a
+{
+    color: #000;
+}
+#pages a:hover
+{
+    background: #cddde4;
+    border: #97b9c9 solid 1px;
+    color: #067db5;
+}
+#pages a.current_page
+{
+    background: #FFF;
+    border: #89bdd8 solid 1px;
+    color: #067db5;
+}
+
+
+/*  这是设备管理*/
+
+
+
+*,ul,li,h1,h2 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu {
+	width: 200px;
+	margin-left: 10px;
+	float: left;
+}
+
+#menu h1 {
+	cursor: pointer;
+	color: #000000;
+	font-size: 18px;
+	padding: 5px 0 3px 10px;
+	margin-top: 1px;
+	font-family: 微软雅黑;
+	background-color: #ffffff;
+}
+
+#menu h2 {
+	cursor: pointer;
+	color: #777;
+	font-size: 15px;
+	padding: 5px 0 3px 10px;
+	border: #ffffff 1px solid;
+	border-top-color: #FFF;
+	margin-left: 20px;
+}
+
+#menu ul {
+	padding-left: 10px;
+	height: auto;
+	border-top: none;
+	overflow: auto;
+}
+
+#menu ul li {
+	padding: 5px 0 3px 0px;
+	margin-left: 50px;
+	font-size: 13px;
+}
+
+.no {
+	display: none;}
